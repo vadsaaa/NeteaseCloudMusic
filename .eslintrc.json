@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",  
+  "rules": {
+    "semi": "off",
+    "comma-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "no-use-before-define": "off",
+    "import/extensions": "off",
+    "react/prop-types": "off",
+    "global-require": "off",
+    "object-curly-newline": "off",
+    "max-len": [1, 120],
+    "arrow-parens": [1, "as-needed"]
+  }
+}
