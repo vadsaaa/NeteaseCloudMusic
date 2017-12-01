@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import color from '../common/color'
+import color from 'src/common/color'
 
 class NavigationItem extends PureComponent {
   render() {

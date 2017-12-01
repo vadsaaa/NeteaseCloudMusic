@@ -5,9 +5,9 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view'
-import NavigationItem from '../../components/NavigationItem'
+import color from 'src/common/color'
+import NavigationItem from 'src/components/NavigationItem'
 import HeaderSearch from './module/headerSearch'
-import color from '../../common/color'
 
 import Music from './module/Music'
 import Station from './module/Station'
@@ -16,8 +16,8 @@ import Video from './module/Video'
 class MusicScene extends Component {
   static navigationOptions = {
     headerTitle: <HeaderSearch />,
-    headerRight: <NavigationItem icon={require('../../images/common/playing.png')} onPress={() => {}} />,
-    headerLeft: <NavigationItem icon={require('../../images/Discovery/cm2_topbar_icn_mic.png')} onPress={() => {}} />
+    headerRight: <NavigationItem icon={require('src/images/common/playing.png')} onPress={() => {}} />,
+    headerLeft: <NavigationItem icon={require('src/images/Discovery/cm2_topbar_icn_mic.png')} onPress={() => {}} />
   }
 
   render() {

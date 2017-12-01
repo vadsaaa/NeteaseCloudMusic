@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import SpacingView from '../../components/SpacingView'
+import config from 'src/config/accountItem'
+import color from 'src/common/color'
+import SpacingView from 'src/components/SpacingView'
 import AccountItem from './components/accountItem'
-import config from '../../config/accountItem'
-import color from '../../common/color'
 
 class UserInfo extends Component {
   state = {}

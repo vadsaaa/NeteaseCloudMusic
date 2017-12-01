@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import { StyleSheet, ScrollView } from 'react-native'
+import color from 'src/common/color'
+import Recommend from './recommend'
+import Category from './category'
 
 class Broadcasting extends Component {
   constructor(props) {
@@ -8,13 +11,17 @@ class Broadcasting extends Component {
   }
   render() {
     return (
-      <View>
-        <Text>test Broadcasting</Text>
-      </View>
+      <ScrollView style={styles.container}>
+        <Recommend />
+        <Category />
+      </ScrollView>
     )
   }
 }
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: color.bgCommon
+  }
+})
 
 export default Broadcasting

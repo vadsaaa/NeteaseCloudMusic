@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
-import NavigationItem from '../../components/NavigationItem'
-import color from '../../common/color'
+import NavigationItem from 'src/components/NavigationItem'
+import color from 'src/common/color'
 
 import UserInfo from './userInfo'
 import Cells from './cells'

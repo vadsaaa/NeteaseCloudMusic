@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import color from '../../common/color'
-import screen from '../../common/screen'
-import TwoLineItem from '../../components/TwoLineItem'
+import color from 'src/common/color'
+import screen from 'src/common/screen'
+import TwoLineItem from 'src/components/TwoLineItem'
 
 class UserInfo extends Component {
   /**
@@ -16,7 +16,7 @@ class UserInfo extends Component {
       <View>
         <View style={styles.userInfoContainer}>
           <View style={styles.userInfo}>
-            <Image style={styles.avatar} source={require('../../images/Account/avatar.png')} />
+            <Image style={styles.avatar} source={require('src/images/Account/avatar.png')} />
             <TwoLineItem
               upside="假逗逗"
               containerStyle={styles.userNoBorder}
@@ -26,7 +26,7 @@ class UserInfo extends Component {
             />
           </View>
           <TouchableOpacity style={styles.signIn} onPress={this.signIn}>
-            <Image style={styles.signInIcon} source={require('../../images/Account/cm2_pop_icn_jifen.png')} />
+            <Image style={styles.signInIcon} source={require('src/images/Account/cm2_pop_icn_jifen.png')} />
             <Text style={styles.signInText}>签到</Text>
           </TouchableOpacity>
         </View>
@@ -54,7 +54,8 @@ class UserInfo extends Component {
           />
           <TwoLineItem
             containerStyle={styles.userRelated}
-            icon={require('../../images/Account/cm2_set_icn_edit.png')}
+            icon={require('src/images/Account/cm2_set_icn_edit.png')}
+            iconStyle={styles.iconStyle}
             upsideStyle={styles.userRelatedUpside}
             downside="我的资料"
           />
@@ -134,24 +135,25 @@ const styles = StyleSheet.create({
   userRelated: {
     width: screen.width * 0.25,
     marginTop: 8,
-    marginBottom: 8
+    marginBottom: 8,
+    borderRightWidth: screen.onePixel,
+    borderRightColor: color.borderBlack,
+    borderStyle: 'solid'
   },
   userNoBorder: {
     borderRightWidth: 0
   },
   userRelatedUpside: {
-    borderRightWidth: screen.onePixel,
-    borderColor: color.lightBlack,
-    borderStyle: 'solid',
     fontWeight: '100',
     marginBottom: 2
   },
   userRelatedDownside: {
-    borderRightWidth: screen.onePixel,
-    borderColor: color.lightBlack,
-    borderStyle: 'solid',
     fontWeight: 'bold',
     color: color.textDark
+  },
+  iconStyle: {
+    width: 15,
+    height: 15
   }
 })
 

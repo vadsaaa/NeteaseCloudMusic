@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity, Switch } from 'react-native'
-import color from '../../../common/color'
-import screen from '../../../common/screen'
+import color from 'src/common/color'
+import screen from 'src/common/screen'
 
 class AccountItem extends PureComponent {
   render() {
@@ -23,7 +23,7 @@ class AccountItem extends PureComponent {
                   onValueChange={handleSwitchChange}
                 />
               )}
-              <Image style={styles.arrow} source={require('../../../images/Account/cm2_radio_icn_arr.png')} />
+              <Image style={styles.arrow} source={require('../../../images/Account/cm2_icn_notify_arrow.png')} />
             </View>
           </View>
         </TouchableOpacity>

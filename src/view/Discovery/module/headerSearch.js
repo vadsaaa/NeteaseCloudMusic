@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Image, Text, StyleSheet, View } from 'react-native'
 
-import screen from '../../../common/screen'
-import color from '../../../common/color'
+import screen from 'src/common/screen'
+import color from 'src/common/color'
 
 class SearchBar extends Component {
   gotoSearch = () => {
@@ -11,7 +11,7 @@ class SearchBar extends Component {
   render() {
     return (
       <View style={styles.searchBar}>
-        <Image source={require('../../../images/Discovery/topbar_icn_search.png')} style={styles.searchIcon} />
+        <Image source={require('src/images/Discovery/topbar_icn_search.png')} style={styles.searchIcon} />
         <Text onPress={this.gotoSearch} style={styles.text}>
           搜索音乐、视频、歌词、电台
         </Text>

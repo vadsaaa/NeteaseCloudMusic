@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import color from '../common/color.js'
+import color from 'src/common/color.js'
 
 const styles = StyleSheet.create({
   container: {

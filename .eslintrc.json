@@ -1,6 +1,14 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint",  
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  },
+  "plugins": [
+    "import"
+  ],
   "rules": {
     "semi": "off",
     "comma-dangle": "off",
@@ -11,6 +19,7 @@
     "global-require": "off",
     "object-curly-newline": "off",
     "max-len": [1, 120],
-    "arrow-parens": [1, "as-needed"]
+    "arrow-parens": [1, "as-needed"],
+    "no-mixed-operators": "off"
   }
 }

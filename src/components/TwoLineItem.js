@@ -1,18 +1,45 @@
 import React, { PureComponent } from 'react'
-import { Image, Text, StyleSheet, View, TouchableOpacity } from 'react-native'
-import color from '../common/color'
-import screen from '../common/screen'
+import { Text, StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native'
+import color from 'src/common/color'
 
 class TwoLineItem extends PureComponent {
   render() {
-    const { icon, iconStyle, upside, upsideStyle, downside, downsideStyle, containerStyle } = this.props
+    const {
+      icon,
+      iconStyle,
+      iconBg,
+      iconBgStyle,
+      iconBgText,
+      iconBgTextStyle,
+      upside,
+      upsideStyle,
+      downside,
+      downsideStyle,
+      containerStyle,
+      rootStyle
+    } = this.props
+    const IconComp = iconBg ? (
+      <ImageBackground style={iconBgStyle} source={iconBg}>
+        <ImageBackground style={[styles.icon, iconStyle]} source={icon}>
+          {iconBgText && <Text style={iconBgTextStyle}>{iconBgText}</Text>}
+        </ImageBackground>
+      </ImageBackground>
+    ) : (
+      <ImageBackground style={[styles.icon, iconStyle]} source={icon}>
+        {iconBgText && <Text style={iconBgTextStyle}>{iconBgText}</Text>}
+      </ImageBackground>
+    )
 
     return (
-      <TouchableOpacity>
+      <TouchableOpacity style={rootStyle}>
         <View style={[styles.container, containerStyle]}>
-          {icon && <Image style={[styles.icon, iconStyle]} source={icon} />}
+          {icon && IconComp}
           {upside && <Text style={[styles.text, upsideStyle]}>{upside}</Text>}
-          {downside && <Text style={[styles.text, downsideStyle]}>{downside}</Text>}
+          {downside && (
+            <Text numberOfLines={2} style={[styles.text, downsideStyle]}>
+              {downside}
+            </Text>
+          )}
         </View>
       </TouchableOpacity>
     )
@@ -22,19 +49,14 @@ class TwoLineItem extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center',
-    borderRightWidth: screen.onePixel,
-    borderRightColor: color.borderBlack,
-    borderStyle: 'solid'
+    alignItems: 'center'
   },
   icon: {
-    width: 15,
-    height: 15,
     marginBottom: 5
   },
   text: {
     fontSize: 12,
-    color: color.textLightDark,
+    color: color.textLightDark
   }
 })
 
