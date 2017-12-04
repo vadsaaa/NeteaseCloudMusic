@@ -4,7 +4,7 @@ import color from 'src/common/color'
 import Recommend from './recommend'
 import Category from './category'
 
-class Broadcasting extends Component {
+class Music extends Component {
   constructor(props) {
     super(props)
     this.state = {}
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Broadcasting
+export default Music

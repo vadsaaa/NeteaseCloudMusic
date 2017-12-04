@@ -1,6 +1,8 @@
 {
   "presets": ["react-native"],
   "plugins": [
+    "lodash",
+    "transform-decorators-legacy",
     [
       "module-resolver",
       {

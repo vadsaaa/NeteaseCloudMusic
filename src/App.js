@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StatusBar } from 'react-native'
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
-
+import './common/common'
 import DiscoveryScene from './view/Discovery/index'
 import MusicScene from './view/Music/index'
 import FriendsScene from './view/Friends/index'

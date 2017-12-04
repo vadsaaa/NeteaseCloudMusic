@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Swiper from 'react-native-swiper'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, Image, StyleSheet, Text } from 'react-native'
+import { map } from 'lodash'
 import TwoLineItem from 'src/components/TwoLineItem'
 import screen from 'src/common/screen'
 import color from 'src/common/color'
@@ -8,14 +9,16 @@ import color from 'src/common/color'
 class Recommend extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      banners: []
+    }
   }
   render() {
+    const { banners } = this.state
     return (
       <View>
         <Swiper
           loop
-          loadMinimal
           autoplay
           style={styles.wrapper}
           height={146}
@@ -25,34 +28,16 @@ class Recommend extends Component {
             bottom: 4
           }}
         >
-          <View style={styles.slide}>
-            <Image
-              resizeMode="stretch"
-              style={styles.image}
-              source={require('src/images/Discovery/music/cm2_default_activity.png')}
-            />
-          </View>
-          <View style={styles.slide}>
-            <Image
-              resizeMode="stretch"
-              style={styles.image}
-              source={require('src/images/Discovery/music/cm2_default_activity.png')}
-            />
-          </View>
-          <View style={styles.slide}>
-            <Image
-              resizeMode="stretch"
-              style={styles.image}
-              source={require('src/images/Discovery/music/cm2_default_activity.png')}
-            />
-          </View>
-          <View style={styles.slide}>
-            <Image
-              resizeMode="stretch"
-              style={styles.image}
-              source={require('src/images/Discovery/music/cm2_default_activity.png')}
-            />
-          </View>
+          {map(banners, item => {
+            return (
+              <View style={styles.slide} key={item.targetId}>
+                <Image resizeMode="stretch" style={styles.image} source={{ uri: item.pic }} />
+                <View style={styles.typeTitleContainer}>
+                  <Text style={[styles.typeTitle, { backgroundColor: item.titleColor }]}>{item.typeTitle}</Text>
+                </View>
+              </View>
+            )
+          })}
         </Swiper>
         <View style={styles.recommendFunc}>
           <TwoLineItem
@@ -97,6 +82,14 @@ class Recommend extends Component {
       </View>
     )
   }
+
+  componentDidMount() {
+    axios.get(api.banner).then(res => {
+      this.setState({
+        banners: res.banners
+      })
+    })
+  }
 }
 
 const styles = StyleSheet.create({
@@ -128,6 +121,17 @@ const styles = StyleSheet.create({
   image: {
     width: screen.width,
     flex: 1
+  },
+  typeTitleContainer: {
+    position: 'absolute',
+    right: 2,
+    bottom: 4,
+    borderRadius: 20
+  },
+  typeTitle: {
+    color: '#fff',
+    fontSize: 12,
+    padding: 4
   },
   recommendFunc: {
     flex: 1,

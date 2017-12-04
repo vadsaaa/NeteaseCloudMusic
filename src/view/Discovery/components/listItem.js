@@ -4,20 +4,23 @@ import color from 'src/common/color'
 
 class ListItem extends PureComponent {
   render() {
-    const { imgBg, imgBgStyle, downside, TextIcon, downsideStyle, rootStyle } = this.props
-
-    const ImgComp = (
-      <ImageBackground style={imgBgStyle} source={{ uri: imgBg }}>
-        {TextIcon}
-      </ImageBackground>
-    )
+    const { imgBg, imgBgStyle, title, subTitle, TextIcon, titleStyle, subTitleStyle, rootStyle } = this.props
 
     return (
       <View style={[styles.container, rootStyle]}>
-        {imgBg && ImgComp}
-        {downside && (
-          <Text numberOfLines={2} style={[styles.text, downsideStyle]}>
-            {downside}
+        {imgBg && (
+          <ImageBackground style={imgBgStyle} source={{ uri: imgBg }}>
+            {TextIcon}
+          </ImageBackground>
+        )}
+        {title && (
+          <Text numberOfLines={1} style={[styles.text, titleStyle]}>
+            {title}
+          </Text>
+        )}
+        {subTitle && (
+          <Text numberOfLines={1} style={[styles.subTitle, subTitleStyle]}>
+            {subTitle}
           </Text>
         )}
       </View>
@@ -31,8 +34,19 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
+    alignSelf: 'flex-start',
+    color: color.textDark,
+    padding: 2,
+    paddingLeft: 6,
+    fontSize: 13
+  },
+  subTitle: {
+    alignSelf: 'flex-start',
+    color: color.textLightDark,
+    padding: 2,
+    paddingLeft: 6,
     fontSize: 12,
-    color: color.textLightDark
+    marginBottom: 16
   }
 })
 
