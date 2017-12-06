@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import { StyleSheet, ScrollView, View, RefreshControl } from 'react-native'
+import { noop } from 'lodash'
 import color from 'src/common/color'
 import Recommend from './recommend'
 import Category from './category'
@@ -9,12 +10,28 @@ class Music extends Component {
     super(props)
     this.state = {}
   }
+
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Recommend />
-        <Category />
-      </ScrollView>
+      <View>
+        <ScrollView
+          style={styles.container}
+          refreshControl={
+            <RefreshControl
+              refreshing={false}
+              onRefresh={noop}
+              tintColor="#fff"
+              title="首页内容根据你的口味生成"
+              titleColor={color.textLightDark}
+              colors={['#fff']}
+              progressBackgroundColor="#fff"
+            />
+          }
+        >
+          <Recommend />
+          <Category />
+        </ScrollView>
+      </View>
     )
   }
 }

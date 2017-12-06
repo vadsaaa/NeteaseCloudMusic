@@ -54,7 +54,6 @@ class Exclusive extends Component {
 
   componentDidMount() {
     axios.get(api.privatecontent).then(res => {
-      console.log(res)
       const list = res.result
       const index = findIndex(list, val => {
         return val.type === 19
@@ -71,7 +70,7 @@ class Exclusive extends Component {
 const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     flexWrap: 'wrap'
   },

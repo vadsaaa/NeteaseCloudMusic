@@ -1,6 +1,8 @@
 import commonStore from './common'
+import discoveryStore from './discovery'
 
 const stores = {
-  commonStore
+  commonStore,
+  discoveryStore
 }
 export default stores

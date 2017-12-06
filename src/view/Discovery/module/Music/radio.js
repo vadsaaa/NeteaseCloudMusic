@@ -1,5 +1,5 @@
 /**
- *  发现音乐 -> 音乐 -> 最新音乐
+ *  发现音乐 -> 音乐 -> 主播电台
  */
 
 import React, { Component } from 'react'
@@ -21,27 +21,21 @@ class NewMusic extends Component {
       <View>
         <CategoryTitle title="主播电台" />
         <View style={styles.categoryContainer}>
-          <ListItem
-            rootStyle={styles.rootStyle}
-            imgBg="https://ws2.sinaimg.cn/large/006tNc79ly1fm4vzjdq65j305u05uglf.jpg"
-            imgBgStyle={styles.imgBgStyle}
-            title="新歌推荐"
-            subTitle="推荐合口味的新歌"
-            titleStyle={styles.titleStyle}
-          />
-          {times(5, index => {
-            const item = list[index] && list[index].song
+          {times(6, index => {
+            const item = list[index] && list[index].program
             if (item) {
-              const subTitle = map(item.artists, 'name').join(' ')
+              const subTitle = map(item.mainSong.artists, 'name').join('/')
               return (
                 <ListItem
                   key={item.id}
+                  numberOfLines={2}
                   rootStyle={styles.rootStyle}
-                  imgBg={item.album.picUrl}
+                  imgBg={item.radio.picUrl}
                   imgBgStyle={styles.imgBgStyle}
-                  title={item.name}
+                  title={item.radio.rcmdText || item.radio.desc}
                   subTitle={subTitle}
                   titleStyle={styles.titleStyle}
+                  subTitleStyle={styles.subTitleStyle}
                 />
               )
             }
@@ -53,7 +47,7 @@ class NewMusic extends Component {
   }
 
   componentDidMount() {
-    axios.get(api.newsong).then(res => {
+    axios.get(api.radio).then(res => {
       this.setState({
         list: res.result
       })
@@ -63,24 +57,25 @@ class NewMusic extends Component {
 const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    paddingBottom: 16
   },
   rootStyle: {
-    width: screen.width / 3 - 4
+    width: screen.width / 3 - 4,
+    height: 180
   },
   imgBgStyle: {
     width: screen.width / 3 - 2,
     height: screen.width / 3 - 2,
     marginBottom: 6
   },
-  textIcon: {
+  subTitleStyle: {
+    color: '#fff',
     backgroundColor: 'transparent',
-    textAlign: 'right',
-    fontSize: 12,
-    paddingRight: 4,
-    marginTop: 2
+    position: 'absolute',
+    top: 104
   }
 })
 

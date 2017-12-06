@@ -1,5 +1,5 @@
 import axios from 'axios'
-import commonStore from 'src/store/common.js'
+import commonStore from '../store/common'
 import storage from './storage'
 import api from './api'
 

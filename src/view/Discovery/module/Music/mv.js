@@ -18,7 +18,7 @@ class Mv extends Component {
   renderIconText = props => {
     let { count } = props
     if (count >= 100000) {
-      count = `${Math.round(count / 100000)}万`
+      count = `${Math.round(count / 10000)}万`
     }
     return (
       <Icon name="ios-videocam-outline" size={14} color="#fff" style={styles.textIcon}>
@@ -69,7 +69,7 @@ class Mv extends Component {
 const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     flexWrap: 'wrap'
   },

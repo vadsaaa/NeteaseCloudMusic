@@ -63,7 +63,7 @@ class NewMusic extends Component {
 const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     flexWrap: 'wrap'
   },

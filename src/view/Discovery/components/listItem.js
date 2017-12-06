@@ -4,7 +4,17 @@ import color from 'src/common/color'
 
 class ListItem extends PureComponent {
   render() {
-    const { imgBg, imgBgStyle, title, subTitle, TextIcon, titleStyle, subTitleStyle, rootStyle } = this.props
+    const {
+      imgBg,
+      imgBgStyle,
+      title,
+      subTitle,
+      TextIcon,
+      titleStyle,
+      subTitleStyle,
+      rootStyle,
+      numberOfLines
+    } = this.props
 
     return (
       <View style={[styles.container, rootStyle]}>
@@ -14,7 +24,7 @@ class ListItem extends PureComponent {
           </ImageBackground>
         )}
         {title && (
-          <Text numberOfLines={1} style={[styles.text, titleStyle]}>
+          <Text numberOfLines={numberOfLines || 1} style={[styles.text, titleStyle]}>
             {title}
           </Text>
         )}
@@ -30,7 +40,7 @@ class ListItem extends PureComponent {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center'
   },
   text: {
