@@ -2,12 +2,14 @@
 
 NeteaseCloudMusic App Write by React-Native(0.50.4)
 
-step
-```
-npm i
+step:
 
 ```
-##  项目配置相关
+npm i
+react-native run-ios
+```
+
+## 项目配置相关
 
 1. api使用了 https://github.com/Binaryify/NeteaseCloudMusicApi, 启动项目前请先确认启动api server, 默认端口为3000, 如若修改, 请将common/api 中的domain同步修改
 
