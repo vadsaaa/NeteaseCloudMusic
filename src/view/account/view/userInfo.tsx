@@ -2,13 +2,13 @@
  * @Author: vic.du 
  * @Date: 2018-03-14 16:35:18 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-14 16:42:02
+ * @Last Modified time: 2018-03-15 14:29:07
  */
 
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import screen from 'src/common/screen'
-import TwoLineItem from 'src/component/twoLineItem'
+import TwoLineItem from 'src/components/twoLineItem'
 import colorConfig from 'src/config/color'
 
 const color = colorConfig.day
@@ -17,7 +17,7 @@ class UserInfo extends Component {
    * 签到
    */
   signIn = () => {
-    console.log('signin')
+    //
   }
   render() {
     return (

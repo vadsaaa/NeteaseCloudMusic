@@ -6,6 +6,9 @@
     "moduleResolution": "classic",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "paths": {
+      "src/*": ["*"]
+    },
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "allowJs": true,

@@ -2,17 +2,16 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-14 16:42:02
+ * @Last Modified time: 2018-03-15 14:29:28
  */
 
-//  账号页
 import React, { Component } from 'react'
 import { ScrollView } from 'react-native'
-import NavigationItem from 'src/component/navigationItem'
+import NavigationItem from 'src/components/navigationItem'
 import colorConfig from 'src/config/color'
 
-// import UserInfo from './userInfo'
-// import Cells from './cells'
+import UserInfo from './view/userInfo'
+import Cells from './view/cells'
 
 const color = colorConfig.day
 
@@ -22,14 +21,14 @@ class AccountScene extends Component {
     headerTitleStyle: {
       color: color.headerText
     },
-    headerRight: <NavigationItem icon={require('../../images/common/playing.png')} onPress={() => {}} />
+    headerRight: <NavigationItem icon={require('../../images/common/playing.png')} />
   }
 
   render() {
     return (
       <ScrollView>
-        {/* <UserInfo /> */}
-        {/* <Cells /> */}
+        <UserInfo />
+        <Cells />
       </ScrollView>
     )
   }

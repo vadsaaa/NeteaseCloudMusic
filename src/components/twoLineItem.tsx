@@ -1,25 +1,26 @@
 import React, { PureComponent } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native'
-import { ImageURISource } from 'react-native'
+import { ImageURISource, ImageBackgroundProperties, TextStyle, ViewStyle, TouchableOpacityProperties } from 'react-native'
 import colorConfig from 'src/config/color'
 
 interface TwoLineItemProps {
   icon?: ImageURISource
-  iconStyle
-  iconBg
-  iconBgStyle
-  iconBgText
-  iconBgTextStyle
-  upside
-  upsideStyle
-  downside
-  downsideStyle
-  containerStyle
-  rootStyle
+  iconStyle?: any
+  iconBg?: ImageURISource
+  iconBgStyle?: ImageBackgroundProperties
+  iconBgText?: string
+  iconBgTextStyle?: TextStyle
+  upside?: string
+  upsideStyle?: TextStyle
+  downside: string
+  downsideStyle?: TextStyle
+  containerStyle?: ViewStyle
+  rootStyle?: TouchableOpacityProperties
 }
 
 const color = colorConfig.day
-class TwoLineItem extends PureComponent {
+
+export default class TwoLineItem extends PureComponent<TwoLineItemProps, {}> {
   render() {
     const {
       icon,
@@ -37,12 +38,12 @@ class TwoLineItem extends PureComponent {
     } = this.props
     const IconComp = iconBg ? (
       <ImageBackground style={iconBgStyle} source={iconBg}>
-        <ImageBackground style={[styles.icon, iconStyle]} source={icon}>
+        <ImageBackground style={[styles.icon, iconStyle]} source={icon!}>
           {iconBgText && <Text style={iconBgTextStyle}>{iconBgText}</Text>}
         </ImageBackground>
       </ImageBackground>
     ) : (
-      <ImageBackground style={[styles.icon, iconStyle]} source={icon}>
+      <ImageBackground style={[styles.icon, iconStyle]} source={icon!}>
         {iconBgText && <Text style={iconBgTextStyle}>{iconBgText}</Text>}
       </ImageBackground>
     )
@@ -76,5 +77,3 @@ const styles = StyleSheet.create({
     color: color.textLightDark
   }
 })
-
-export default TwoLineItem

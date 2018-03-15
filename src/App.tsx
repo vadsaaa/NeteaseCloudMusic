@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-14 11:16:47
+ * @Last Modified time: 2018-03-15 11:47:29
  */
 
 import React, { Component } from 'react'
@@ -13,7 +13,7 @@ import MusicScene from './view/music/index'
 import FriendsScene from './view/friends/index'
 import AccountScene from './view/account/index'
 
-import TabBarItem from './component/tabBarItem'
+import TabBarItem from './components/tabBarItem'
 import colorConfig from './config/color'
 
 const color = colorConfig.day

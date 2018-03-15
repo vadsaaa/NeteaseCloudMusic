@@ -2,21 +2,21 @@
  * @Author: vic.du 
  * @Date: 2018-03-14 16:48:56 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-14 17:22:48
+ * @Last Modified time: 2018-03-15 14:27:54
  */
 
 import React from 'react'
 import { Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { GestureResponderEvent, ImageProperties, ImageURISource } from 'react-native'
+import { GestureResponderEvent, ImageURISource, ImageStyle } from 'react-native'
 import colorConfig from 'src/config/color'
 
 const color = colorConfig.day
 
 interface NavigationItemProps {
   icon?: ImageURISource
-  iconStyle?: ImageProperties
+  iconStyle?: ImageStyle
   title?: string
-  titleStyle?: ImageProperties
+  titleStyle?: ImageStyle
   onPress?: (event: GestureResponderEvent) => void
 }
 
