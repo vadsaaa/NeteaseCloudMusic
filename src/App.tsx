@@ -2,12 +2,14 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-15 11:47:29
+ * @Last Modified time: 2018-03-15 19:15:06
  */
 
 import React, { Component } from 'react'
 import { StatusBar } from 'react-native'
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
+import { Provider } from 'react-redux'
+import store from './store/index'
 import DiscoveryScene from './view/discovery/index'
 import MusicScene from './view/music/index'
 import FriendsScene from './view/friends/index'
@@ -98,8 +100,7 @@ const Navigator = StackNavigator(
   {
     navigationOptions: {
       headerStyle: { backgroundColor: color.theme },
-      headerBackTitle: null,
-      showIcon: true
+      headerBackTitle: null
     }
   }
 )
@@ -111,7 +112,11 @@ class RootScene extends Component {
   }
 
   render() {
-    return <Navigator />
+    return (
+      <Provider store={store}>
+        <Navigator />
+      </Provider>
+    )
   }
 }
 
