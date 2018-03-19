@@ -24,7 +24,9 @@ class AccountScene extends Component<Props> {
     headerTitleStyle: {
       color: color.headerText
     },
-    headerRight: <NavigationItem icon={require('../../images/common/playing.png')} />
+    headerRight: (
+      <NavigationItem icon={require('../../images/common/playing.png')} />
+    )
   }
 
   render() {
@@ -37,11 +39,11 @@ class AccountScene extends Component<Props> {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: object) {
   return state
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: any) {
   return {}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AccountScene)
