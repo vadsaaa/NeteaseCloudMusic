@@ -1,5 +1,8 @@
 ﻿# NeteaseCloudMusic
 
+> 此分支停止更新, 已切换至v1分支!
+
+> this branch is deprecated, please switch to v1 branch!
 NeteaseCloudMusic App Write by React-Native(0.50.4)
 
 step:
