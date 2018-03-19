@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-15 19:15:06
+ * @Last Modified time: 2018-03-19 18:56:14
  */
 
 import React, { Component } from 'react'
@@ -11,7 +11,8 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation'
 import { Provider } from 'react-redux'
 import store from './store/index'
 import DiscoveryScene from './view/discovery/index'
-import MusicScene from './view/music/index'
+import VideoScene from './view/video'
+import MusicScene from './view/mine/index'
 import FriendsScene from './view/friends/index'
 import AccountScene from './view/account/index'
 
@@ -25,7 +26,7 @@ const Tab = TabNavigator(
     Discovery: {
       screen: DiscoveryScene,
       navigationOptions: () => ({
-        tabBarLabel: '发现音乐',
+        tabBarLabel: '发现',
         tabBarIcon: ({ focused, tintColor }) => (
           <TabBarItem
             tintColor={tintColor}
@@ -36,10 +37,24 @@ const Tab = TabNavigator(
         )
       })
     },
+    Video: {
+      screen: VideoScene,
+      navigationOptions: () => ({
+        tabBarLabel: '视频',
+        tabBarIcon: ({ focused, tintColor }) => (
+          <TabBarItem
+            tintColor={tintColor}
+            focused={focused}
+            normalImage={require('./images/video/video.png')}
+            selectedImage={require('./images/video/video_select.png')}
+          />
+        )
+      })
+    },
     Music: {
       screen: MusicScene,
       navigationOptions: () => ({
-        tabBarLabel: '我的音乐',
+        tabBarLabel: '我的',
         tabBarIcon: ({ focused, tintColor }) => (
           <TabBarItem
             tintColor={tintColor}

@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-14 16:35:18 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-15 14:29:07
+ * @Last Modified time: 2018-03-19 16:31:45
  */
 
 import React, { Component } from 'react'
@@ -26,11 +26,11 @@ class UserInfo extends Component {
           <View style={styles.userInfo}>
             <Image style={styles.avatar} source={require('src/images/Account/avatar.png')} />
             <TwoLineItem
-              upside="假逗逗"
               containerStyle={styles.userNoBorder}
+              upside="假逗逗"
               upsideStyle={styles.nickname}
-              downsideStyle={styles.lever}
               downside="Lv. 88"
+              downsideStyle={styles.lever}
             />
           </View>
           <TouchableOpacity style={styles.signIn} onPress={this.signIn}>
@@ -43,29 +43,29 @@ class UserInfo extends Component {
             containerStyle={styles.userRelated}
             upside="动态"
             upsideStyle={styles.userRelatedUpside}
-            downsideStyle={styles.userRelatedDownside}
             downside="7"
+            downsideStyle={styles.userRelatedDownside}
           />
           <TwoLineItem
             containerStyle={styles.userRelated}
             upside="关注"
             upsideStyle={styles.userRelatedUpside}
-            downsideStyle={styles.userRelatedDownside}
             downside="3"
+            downsideStyle={styles.userRelatedDownside}
           />
           <TwoLineItem
             containerStyle={styles.userRelated}
             upside="粉丝"
             upsideStyle={styles.userRelatedUpside}
-            downsideStyle={styles.userRelatedDownside}
             downside="3"
+            downsideStyle={styles.userRelatedDownside}
           />
           <TwoLineItem
             containerStyle={styles.userRelated}
             icon={require('src/images/Account/cm2_set_icn_edit.png')}
             iconStyle={styles.iconStyle}
-            upsideStyle={styles.userRelatedUpside}
             downside="我的资料"
+            upsideStyle={styles.userRelatedUpside}
           />
         </View>
       </View>

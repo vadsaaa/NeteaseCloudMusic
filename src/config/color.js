@@ -1,3 +1,10 @@
+/*
+ * @Author: vic.du 
+ * @Date: 2018-03-13 18:26:55 
+ * @Last Modified by: vic.du
+ * @Last Modified time: 2018-03-13 18:49:40
+ */
+
 export default {
   day: {
     tabActive: '#ccc',

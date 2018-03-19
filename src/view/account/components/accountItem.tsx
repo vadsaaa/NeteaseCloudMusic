@@ -1,3 +1,10 @@
+/*
+ * @Author: vic.du 
+ * @Date: 2018-03-13 18:26:55 
+ * @Last Modified by: vic.du
+ * @Last Modified time: 2018-03-19 10:54:19
+ */
+
 import React from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity, Switch } from 'react-native'
 import { ViewStyle, ImageURISource } from 'react-native'

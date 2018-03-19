@@ -1,3 +1,10 @@
+/*
+ * @Author: vic.du 
+ * @Date: 2018-03-13 18:26:55 
+ * @Last Modified by: vic.du
+ * @Last Modified time: 2018-03-19 10:52:53
+ */
+
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import config from 'src/config/accountItem'
@@ -44,7 +51,15 @@ export default class UserInfo extends Component {
           )
         } else {
           const style = index === arr.length - 1 ? { borderBottomWidth: 0 } : {}
-          cell = <AccountItem style={style} icon={item.icon} title={item.title} subtitle={item.subtitle} key={item.dataIndex} />
+          cell = (
+            <AccountItem
+              style={style}
+              icon={item.icon}
+              title={item.title}
+              subtitle={item.subtitle}
+              key={item.dataIndex}
+            />
+          )
         }
         cells.push(cell)
       })

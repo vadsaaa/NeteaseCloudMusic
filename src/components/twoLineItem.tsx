@@ -1,14 +1,22 @@
+/*
+ * @Author: vic.du 
+ * @Date: 2018-03-13 18:26:55 
+ * @Last Modified by: vic.du
+ * @Last Modified time: 2018-03-19 19:52:45
+ */
+
 import React, { PureComponent } from 'react'
 import { Text, StyleSheet, View, TouchableOpacity, ImageBackground } from 'react-native'
-import { ImageURISource, ImageBackgroundProperties, TextStyle, ViewStyle, TouchableOpacityProperties } from 'react-native'
+import { ImageURISource, TextStyle, ViewStyle, TouchableOpacityProperties, ImageStyle } from 'react-native'
 import colorConfig from 'src/config/color'
 
 interface TwoLineItemProps {
   icon?: ImageURISource
   iconStyle?: any
   iconBg?: ImageURISource
-  iconBgStyle?: ImageBackgroundProperties
-  iconBgText?: string
+  // iconBgStyle?: StyleProp<ImageStyle>
+  iconBgStyle?: ImageStyle
+  iconBgText?: string | number
   iconBgTextStyle?: TextStyle
   upside?: string
   upsideStyle?: TextStyle
