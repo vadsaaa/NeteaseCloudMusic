@@ -2,26 +2,30 @@
  * @Author: vic.du 
  * @Date: 2018-03-19 19:47:46 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-19 19:57:43
+ * @Last Modified time: 2018-03-20 18:31:51
  */
 
 // 轮播组件
 import React, { Component } from 'react'
 import Swiper from 'react-native-swiper'
 import { View, Image, StyleSheet, Text } from 'react-native'
-import { map } from 'lodash'
 import screen from 'src/common/screen'
 
-class Recommend extends Component<any, {}> {
-  state = {
-    banners: []
-  }
+type BannerItem = {
+  targetId: number
+  pic: string
+  titleColor: string
+  typeTitle: string
+}
+interface SlidersProps {
+  banners: BannerItem[]
+}
+class Slider extends Component<SlidersProps, {}> {
   render() {
-    const { banners } = this.state
+    const { banners } = this.props
     return (
       <View>
         <Swiper
-          loop
           autoplay
           height={146}
           dot={<View style={styles.dot} />}
@@ -30,7 +34,7 @@ class Recommend extends Component<any, {}> {
             bottom: 4
           }}
         >
-          {map(banners, item => {
+          {banners.map(item => {
             return (
               <View style={styles.slide} key={item.targetId}>
                 <Image resizeMode="stretch" style={styles.image} source={{ uri: item.pic }} />
@@ -43,14 +47,6 @@ class Recommend extends Component<any, {}> {
         </Swiper>
       </View>
     )
-  }
-
-  componentDidMount() {
-    // axios.get(api.banner).then(res => {
-    //   this.setState({
-    //     banners: res.banners
-    //   })
-    // })
   }
 }
 
@@ -93,8 +89,9 @@ const styles = StyleSheet.create({
   typeTitle: {
     color: '#fff',
     fontSize: 12,
-    padding: 4
+    padding: 4,
+    borderRadius: 20
   }
 })
 
-export default Recommend
+export { Slider, BannerItem, SlidersProps }

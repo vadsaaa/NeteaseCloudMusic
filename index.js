@@ -1,4 +1,5 @@
-import { AppRegistry } from 'react-native';
-import App from './src/App';
+import { AppRegistry } from 'react-native'
+import App from './src/App'
+import './src/common/common'
 
-AppRegistry.registerComponent('cloudMusic', () => App);
+AppRegistry.registerComponent('cloudMusic', () => App)

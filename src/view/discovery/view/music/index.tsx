@@ -2,15 +2,15 @@
  * @Author: vic.du 
  * @Date: 2018-03-19 19:05:59 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-19 19:11:03
+ * @Last Modified time: 2018-03-20 21:38:58
  */
 
 import React, { Component } from 'react'
 import { StyleSheet, ScrollView, View, RefreshControl } from 'react-native'
 import { noop } from 'lodash'
 import colorConfig from 'src/config/color'
-// import Recommend from './recommend'
-// import Category from './category'
+import Recommend from './recommend'
+import Category from './category'
 
 const color = colorConfig.day
 
@@ -38,8 +38,8 @@ class Music extends Component<MusicTabProps, {}> {
             />
           }
         >
-          {/* <Recommend /> */}
-          {/* <Category /> */}
+          <Recommend />
+          <Category />
         </ScrollView>
       </View>
     )
