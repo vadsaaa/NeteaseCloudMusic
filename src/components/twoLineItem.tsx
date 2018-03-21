@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-19 19:52:45
+ * @Last Modified time: 2018-03-21 10:31:10
  */
 
 import React, { PureComponent } from 'react'
@@ -14,7 +14,6 @@ interface TwoLineItemProps {
   icon?: ImageURISource
   iconStyle?: any
   iconBg?: ImageURISource
-  // iconBgStyle?: StyleProp<ImageStyle>
   iconBgStyle?: ImageStyle
   iconBgText?: string | number
   iconBgTextStyle?: TextStyle

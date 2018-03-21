@@ -4,10 +4,13 @@ import defaultMusicComOrder from 'src/config/defaultMusicComOrder'
 import PlayList from './view/playlist'
 import Exclusive from './view/exclusive'
 import LatestMusic from './view/latestMusic'
-// import Mv from './mv'
-// import SpecialColumn from './specialColumn'
+import Vip from './view/vip'
+import ChoicenessColumn from './view/choicenessColumn'
 import Radio from './view/radio'
-// import MusicFooter from './musicFooter'
+import RecommendSinger from './view/recommendSinger'
+import MusicLive from './view/musicLive'
+import GuessLike from './view/guessLike'
+import MusicFooter from './view/musicFooter'
 
 class Category extends Component {
   switchCom = val => {
@@ -18,12 +21,18 @@ class Category extends Component {
         return <Exclusive key="exclusive" />
       case 'latestMusic':
         return <LatestMusic key="newMusic" />
-      // case 'mv':
-      //   return <Mv key="mv" />
-      // case 'specialColumn':
-      //   return <SpecialColumn key="specialColumn" />
+      case 'vip':
+        return <Vip key="mv" />
+      case 'choicenessColumn':
+        return <ChoicenessColumn key="choicenessColumn" />
       case 'radio':
         return <Radio key="radio" />
+      case 'recommendSinger':
+        return <RecommendSinger key="recommendSinger" />
+      case 'musicLive':
+        return <MusicLive key="musicLive" />
+      case 'guessLike':
+        return <GuessLike key="guessLike" />
       default:
         return null
     }
@@ -35,7 +44,7 @@ class Category extends Component {
     return (
       <View>
         {musicComOrder.map(val => this.switchCom(val))}
-        {/* {musicComOrder.length && <MusicFooter />} */}
+        {musicComOrder.length && <MusicFooter />}
       </View>
     )
   }
