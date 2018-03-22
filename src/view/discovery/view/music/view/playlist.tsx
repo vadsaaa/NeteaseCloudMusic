@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-20 18:51:44 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-20 21:28:20
+ * @Last Modified time: 2018-03-21 18:37:01
  */
 
 // 音乐 -> 发现音乐 ->  推荐歌单
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: 12
+    fontSize: 12,
+    fontWeight: 'bold'
   },
   downsideStyle: {
     color: color.textDark,

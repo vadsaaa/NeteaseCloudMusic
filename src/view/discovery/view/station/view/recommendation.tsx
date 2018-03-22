@@ -1,41 +1,35 @@
 /*
  * @Author: vic.du 
- * @Date: 2018-03-20 22:42:11 
+ * @Date: 2018-03-21 17:30:01 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-21 22:01:12
+ * @Last Modified time: 2018-03-21 17:48:10
  */
 
-// 音乐 -> 发现音乐 -> 主播电台
+// 发现-> 主播电台 -> 电台个性推荐
 
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
-import times from 'lodash/times'
-import map from 'lodash/map'
 import { axios, api } from 'src/common/common'
 import screen from 'src/common/screen'
 import CategoryTitle from '../../../components/categoryTitle'
 import ListItem from '../../../components/listItem'
-import LazyLoad from 'src/components/lazyLoad'
 
-type RadioItem = {
+type LatestMusicItem = {
+  id: number
+  name: string
+  picUrl: string
   program: {
-    id: number
-    mainSong: {
-      artists: any[]
-    }
-    radio: {
-      picUrl: string
-      rcmdText?: string
-      desc: string
+    dj: {
+      nickname: string
     }
   }
 }
 
-interface RadioState {
-  list: RadioItem[]
+interface LatestMusicState {
+  list: LatestMusicItem[]
 }
 
-class Radio extends Component<{}, RadioState> {
+class Recommendation extends Component<{}, LatestMusicState> {
   constructor(props: {}) {
     super(props)
     this.state = {
@@ -46,31 +40,27 @@ class Radio extends Component<{}, RadioState> {
   handleTitleClick = () => {
     //
   }
+
   render() {
     const { list } = this.state
 
     return (
       <View>
-        <CategoryTitle title="主播电台" onPress={this.handleTitleClick} />
+        <CategoryTitle title="电台个性推荐" onPress={this.handleTitleClick} showArrow={false} />
         <View style={styles.categoryContainer}>
-          {times(6, index => {
-            const item = list[index] && list[index].program
-            if (item) {
-              const subTitle = map(item.mainSong.artists, 'name').join('/')
-              return (
-                <ListItem
-                  key={item.id}
-                  numberOfLines={2}
-                  rootStyle={styles.rootStyle}
-                  imgBg={item.radio.picUrl}
-                  imgBgStyle={styles.imgBgStyle}
-                  title={item.radio.rcmdText || item.radio.desc}
-                  subTitle={subTitle}
-                  subTitleStyle={styles.subTitleStyle}
-                />
-              )
-            }
-            return null
+          {list.map(item => {
+            return (
+              <ListItem
+                key={item.id}
+                rootStyle={styles.rootStyle}
+                numberOfLines={2}
+                imgBg={item.picUrl}
+                imgBgStyle={styles.imgBgStyle}
+                title={item.name}
+                subTitle={item.program.dj.nickname}
+                subTitleStyle={styles.subTitleStyle}
+              />
+            )
           })}
         </View>
       </View>
@@ -110,4 +100,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default LazyLoad(Radio)
+export default Recommendation

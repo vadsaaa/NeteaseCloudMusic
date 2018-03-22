@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-19 19:05:59 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-20 21:38:58
+ * @Last Modified time: 2018-03-21 22:26:45
  */
 
 import React, { Component } from 'react'
@@ -19,13 +19,16 @@ interface MusicTabProps {
 }
 
 class Music extends Component<MusicTabProps, {}> {
-  state = {}
-
+  handleScroll = event => {
+    console.info(event.nativeEvent.contentOffset.y)
+  }
   render() {
     return (
       <View>
         <ScrollView
           style={styles.container}
+          onScroll={this.handleScroll}
+          scrollEventThrottle={5}
           refreshControl={
             <RefreshControl
               refreshing={false}

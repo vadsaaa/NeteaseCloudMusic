@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import { Text, StyleSheet, TouchableOpacity, Image, View } from 'react-native'
-import { TextStyle, GestureResponderEvent } from 'react-native'
+import { TextStyle, GestureResponderEvent, ViewStyle } from 'react-native'
 import colorConfig from 'src/config/color'
 import screen from 'src/common/screen'
 
 interface CategoryTitleProps {
+  containerStyle?: ViewStyle
   title?: string | number
   titleStyle?: TextStyle
   icon?: ReactElement<{}>
@@ -15,9 +16,9 @@ interface CategoryTitleProps {
 const color = colorConfig.day
 
 const CategoryTitle = (props: CategoryTitleProps) => {
-  const { title, titleStyle, onPress, icon, showArrow = true } = props
+  const { title, titleStyle, onPress, icon, containerStyle, showArrow = true } = props
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, containerStyle]} onPress={onPress}>
       <View style={styles.textContainer}>
         {icon && icon}
         {title && <Text style={[styles.title, titleStyle]}>{title}</Text>}

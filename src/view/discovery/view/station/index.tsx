@@ -1,37 +1,40 @@
 /*
  * @Author: vic.du 
- * @Date: 2018-03-19 19:09:35 
+ * @Date: 2018-03-19 19:05:59 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-19 19:10:25
+ * @Last Modified time: 2018-03-21 16:50:16
  */
 
-import React, { PureComponent } from 'react'
-import { StyleSheet, ScrollView } from 'react-native'
+import React, { Component } from 'react'
+import { StyleSheet, ScrollView, View } from 'react-native'
 import colorConfig from 'src/config/color'
-// import Recommend from './recommend'
-// import Category from './category'
+import Recommend from './recommend'
+import Category from './category'
 
 const color = colorConfig.day
 
-interface StationTabProps {
+interface MusicTabProps {
   tabLabel: string
 }
 
-export default class Station extends PureComponent<StationTabProps, {}> {
+class Music extends Component<MusicTabProps, {}> {
   state = {}
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* <Recommend /> */}
-        {/* <Category /> */}
-      </ScrollView>
+      <View>
+        <ScrollView style={styles.container}>
+          <Recommend />
+          <Category />
+        </ScrollView>
+      </View>
     )
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: color.bgCommon
   }
 })
+
+export default Music

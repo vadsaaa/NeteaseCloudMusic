@@ -2,7 +2,7 @@
  * @Author: vic.du 
  * @Date: 2018-03-13 18:26:55 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-20 18:28:05
+ * @Last Modified time: 2018-03-21 18:34:05
  */
 
 // 发现音乐
@@ -40,6 +40,9 @@ class MusicScene extends Component {
         <Station tabLabel="主播电台" />
       </ScrollableTabView>
     )
+  }
+  componentDidMount() {
+    console.info(screen.height)
   }
 }
 

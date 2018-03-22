@@ -1,42 +1,37 @@
 /*
  * @Author: vic.du 
- * @Date: 2018-03-20 22:42:11 
+ * @Date: 2018-03-21 22:41:50 
  * @Last Modified by: vic.du
- * @Last Modified time: 2018-03-21 22:01:12
+ * @Last Modified time: 2018-03-22 10:46:08
  */
-
-// 音乐 -> 发现音乐 -> 主播电台
 
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import times from 'lodash/times'
-import map from 'lodash/map'
 import { axios, api } from 'src/common/common'
 import screen from 'src/common/screen'
 import CategoryTitle from '../../../components/categoryTitle'
 import ListItem from '../../../components/listItem'
-import LazyLoad from 'src/components/lazyLoad'
 
 type RadioItem = {
-  program: {
+  id: number
+  name: string
+  picUrl: string
+  rcmdtext: string
+}
+
+interface RadioCategoryState {
+  list: RadioItem[]
+}
+interface RadioCategoryProps {
+  data: {
     id: number
-    mainSong: {
-      artists: any[]
-    }
-    radio: {
-      picUrl: string
-      rcmdText?: string
-      desc: string
-    }
+    name: string
   }
 }
 
-interface RadioState {
-  list: RadioItem[]
-}
-
-class Radio extends Component<{}, RadioState> {
-  constructor(props: {}) {
+class RadioCategory extends Component<RadioCategoryProps, RadioCategoryState> {
+  constructor(props: RadioCategoryProps) {
     super(props)
     this.state = {
       list: []
@@ -46,26 +41,27 @@ class Radio extends Component<{}, RadioState> {
   handleTitleClick = () => {
     //
   }
+
   render() {
     const { list } = this.state
+    const { data } = this.props
 
     return (
       <View>
-        <CategoryTitle title="主播电台" onPress={this.handleTitleClick} />
+        <CategoryTitle title={data.name} onPress={this.handleTitleClick} />
         <View style={styles.categoryContainer}>
-          {times(6, index => {
-            const item = list[index] && list[index].program
+          {times(3, (index: number) => {
+            const item = list[index]
             if (item) {
-              const subTitle = map(item.mainSong.artists, 'name').join('/')
               return (
                 <ListItem
                   key={item.id}
-                  numberOfLines={2}
                   rootStyle={styles.rootStyle}
-                  imgBg={item.radio.picUrl}
+                  numberOfLines={2}
+                  imgBg={item.picUrl}
                   imgBgStyle={styles.imgBgStyle}
-                  title={item.radio.rcmdText || item.radio.desc}
-                  subTitle={subTitle}
+                  title={item.name}
+                  subTitle={item.rcmdtext}
                   subTitleStyle={styles.subTitleStyle}
                 />
               )
@@ -78,9 +74,10 @@ class Radio extends Component<{}, RadioState> {
   }
 
   componentDidMount() {
-    axios.get(api.radio).then(res => {
+    axios.get(`${api.djRecommend}?type=${this.props.data.id}`).then(res => {
+      // console.info(res.data.djRadios)
       this.setState({
-        list: res.data.result
+        list: res.data.djRadios
       })
     })
   }
@@ -90,8 +87,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    paddingBottom: 16
+    flexWrap: 'wrap'
   },
   rootStyle: {
     width: screen.width / 3 - 4,
@@ -110,4 +106,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default LazyLoad(Radio)
+export default RadioCategory
