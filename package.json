@@ -5,7 +5,12 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --config ../../../../rn-cli.config.js --reset-cache",
     "test": "jest",
-    "lint": "tslint -c tslint.json \"src/**/*.{ts,tsx}\""
+    "lint": "tslint -c tslint.json \"src/**/*.{ts,tsx}\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.ts": "tslint",
+    "src/**/*.tsx": "tslint"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -30,7 +35,9 @@
     "@types/redux-logger": "^3.0.5",
     "babel-jest": "22.4.1",
     "babel-preset-react-native": "4.0.0",
+    "husky": "^0.14.3",
     "jest": "22.4.2",
+    "lint-staged": "^7.0.0",
     "react-native-typescript-transformer": "1.2.3",
     "react-test-renderer": "16.3.0-alpha.1",
     "ts-jest": "22.4.1",
@@ -44,16 +51,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "modulePaths": [
-      "<rootDir>"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "modulePaths": ["<rootDir>"]
   }
 }

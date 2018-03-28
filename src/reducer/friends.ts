@@ -13,7 +13,7 @@ export const actions = {
   // }
 }
 
-export function reducer(state = initialState, action) {
+export function reducer(state: {} = initialState, action: any) {
   switch (action.type) {
     // case actionTypes.RESPONSE_ARTICLE_LIST:
     //   return {

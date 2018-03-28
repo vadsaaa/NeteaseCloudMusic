@@ -1,6 +1,4 @@
-const initialState = {
-  name: 'dhj'
-}
+const initialState = {}
 export const actionTypes = {
   // GET_ARTICLE_LIST: 'GET_ARTICLE_LIST',
 }
@@ -15,7 +13,7 @@ export const actions = {
   // }
 }
 
-export function reducer(state = initialState, action) {
+export function reducer(state: {} = initialState, action: any) {
   switch (action.type) {
     // case actionTypes.RESPONSE_ARTICLE_LIST:
     //   return {
