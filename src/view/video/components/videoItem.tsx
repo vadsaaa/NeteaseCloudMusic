@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 // import { View, StyleSheet } from 'react-native'
 // import screen from 'src/common/screen'
-import VideoPlayer from 'react-native-video-controls'
+// import VideoPlayer from 'react-native-video-controls'
 
 class VideoItem extends Component<{}, {}> {
   player: any
@@ -10,13 +10,13 @@ class VideoItem extends Component<{}, {}> {
   render() {
     return (
       <View>
-        <VideoPlayer
+        {/* <VideoPlayer
           source={{
-            uri: `http://v4.music.126.net/20180423015319/376094d1870f53423922
+            uri: `http://music.dudoudou.top/mv/url?url=http://v4.music.126.net/20180423015319/376094d1870f53423922
               3cb67392368b/web/cloudmusic/mv/20180419113609/fc63eaa1-a328-45bf-b94e-d
               525a9ae3b11/25f45cf41c3aadece407e15bdcb146c5.mp4`
           }}
-        />
+        /> */}
         {/* <Video
           source={{
             uri:
