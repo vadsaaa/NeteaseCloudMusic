@@ -5,6 +5,7 @@
  * @Last Modified time: 2018-03-19 19:30:25
  */
 
+// 顶部搜索栏
 import React, { Component } from 'react'
 import { Image, Text, StyleSheet, View } from 'react-native'
 import screen from 'src/common/screen'

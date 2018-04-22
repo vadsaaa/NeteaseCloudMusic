@@ -1,8 +1,13 @@
 {
-  "name": "cloudMusic",
+  "name": "cloud_music",
   "version": "0.0.1",
+  "author": {
+    "name": "duhongjun",
+    "url": "https://github.com/duhongjun"
+  },
   "private": true,
   "scripts": {
+    "dev": "react-native run-ios --simulator 'iPhone 8'",
     "start": "node node_modules/react-native/local-cli/cli.js start --config ../../../../rn-cli.config.js --reset-cache",
     "test": "jest",
     "lint": "tslint -c tslint.json \"src/**/*.{ts,tsx}\"",
@@ -19,6 +24,8 @@
     "react-native": "0.54.2",
     "react-native-scrollable-tab-view": "^0.8.0",
     "react-native-swiper": "^1.5.13",
+    "react-native-video": "^2.0.0",
+    "react-native-video-controls": "^2.2.1",
     "react-navigation": "1.5.2",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
@@ -51,7 +58,16 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "modulePaths": ["<rootDir>"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ]
   }
 }

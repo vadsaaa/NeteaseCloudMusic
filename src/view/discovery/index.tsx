@@ -5,7 +5,7 @@
  * @Last Modified time: 2018-03-21 18:34:05
  */
 
-// 发现音乐
+// 发现
 
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
@@ -13,7 +13,7 @@ import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-vi
 import colorConfig from 'src/config/color'
 import screen from 'src/common/screen'
 import NavigationItem from 'src/components/navigationItem'
-import HeaderSearch from './view/headerSearch'
+import HeaderSearch from 'src/components/headerSearch'
 
 import Music from './view/music'
 import Station from './view/station'
